@@ -10,10 +10,10 @@ Program_1 Binary_Conversion:
     - The threshold value used for testing is 121
 
 Program_2 Image_Labeling:
-    - Comments
+    - Multiple cases to label & create sets, then pass over & change pixel
 
 Program_3 Computing of properties
-    - Comments
+    - Gets labels, computes properties, draws line & outputs #'s to file
     
 Program_4 Object detection
     - The criteria used for matching objects are ...

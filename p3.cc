@@ -2,6 +2,7 @@
 // <William McPhail>
 // Computational Vision Homework 2
 // Program 3
+// Date of Creation: 2/22/2024
 //
 
 #include "image.h"
@@ -39,22 +40,20 @@ void ComputeProperties(const string &input_filename, const string &output_descri
     return;
   }
 
+  //Declare variables
   vector<string> object_labels;
-
   map<int, double> center_row_positions;
   map<int, double> center_column_positions;
   map<int, double> object_areas;
-
   map<int, double> a_primes;
   map<int, double> b_primes;
   map<int, double> c_primes;
-
   map<int, double> minimum_moment_of_inertia;
   map<int, double> roundedness;
   map<int, double> orientation;
-
   set<int> unique_label_set;
 
+  //Get unique labels
   for (size_t i = 0; i < an_image.num_rows(); ++i)
   {
     for (size_t j = 0; j < an_image.num_columns(); ++j)
@@ -66,6 +65,7 @@ void ComputeProperties(const string &input_filename, const string &output_descri
     }
   }
 
+  //Compute centroids, object areas, and a', b', c'
   for (auto x : unique_label_set)
   {
     double center_row_position = 0;
@@ -111,6 +111,7 @@ void ComputeProperties(const string &input_filename, const string &output_descri
     // cout << "c prime: " << c_prime << endl;
   }
 
+  //Compute minimum moment of inertia, roundedness, and orientation
   for (auto x : unique_label_set)
   {
     // cout << a_primes[x] << " " << b_primes[x] << " " << c_primes[x] << endl;
@@ -152,7 +153,7 @@ void ComputeProperties(const string &input_filename, const string &output_descri
 
   ofstream outFile(output_descriptions);
   for (auto x : unique_label_set) {
-    outFile << x << " " << center_row_positions[x] << " " << center_column_positions[x] << " " << minimum_moment_of_inertia[x]
+    outFile << std::fixed << x << " " << center_row_positions[x] << " " << center_column_positions[x] << " " << minimum_moment_of_inertia[x]
      << " " << object_areas[x] << " " << roundedness[x] << " " << (orientation[x] * 180) / M_PI << endl;
   }
 

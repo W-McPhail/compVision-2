@@ -1,7 +1,8 @@
 //
 // <William McPhail>
 // Computational Vision Homework 2
-// Program 2
+// Program 2 : Sequential Labeling of Binary Image & Changing Grayscale
+// Date of Creation: 2/21/2024
 //
 
 #include "image.h"
@@ -42,6 +43,7 @@ void PerformSequentialLabeling(const string &input_filename, const string &outpu
   int label = 1;
   vector<int> labels(an_image.num_rows() * an_image.num_columns(), 0);
 
+  // Loop through the image and assign labels
   for (size_t i = 0; i < an_image.num_rows(); ++i)
   {
     for (size_t j = 0; j < an_image.num_columns(); ++j)

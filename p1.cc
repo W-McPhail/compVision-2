@@ -2,6 +2,7 @@
 // <William McPhail>
 // Computational Vision Homework 2
 // Program 1
+// Date of Creation: 2/20/2024
 //
 
 #include "image.h"
@@ -13,8 +14,6 @@
 
 using namespace std;
 using namespace ComputerVisionProjects;
-
-
 
  // @brief Implementation of Task Program 1 to convert to binary image given a threshold.
  //  
